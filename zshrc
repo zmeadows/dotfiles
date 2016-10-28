@@ -20,12 +20,25 @@ SAVEHIST=10000
 HISTFILE=~/.zsh_history
 setopt APPEND_HISTORY
 
+export LESS='-F -i -J -M -R -W -x4 -X -z-4'
 
 ###########
 # MACBOOK #
 ###########
 
 if [[ $HOSTNAME == *"macbook"* ]]; then
+
+PATH=$PATH:/Users/zac/.cabal/bin
+PATH=$PATH:/Users/zac/Research/scripts
+PATH=$PATH:/Users/zac/.local/bin
+PATH="$HOME/.cargo/bin:$PATH"
+LSCOLORS="exfxcxdxbxegedabagacad"
+
+pushd $(brew --prefix root6) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
+
+# initialize autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ###########
 # TITAN #
