@@ -89,4 +89,4 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     lsetup panda
     lsetup pyami
 
-done
+fi
