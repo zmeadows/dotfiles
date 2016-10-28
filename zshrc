@@ -45,31 +45,23 @@ if [[ $HOSTNAME == *"macbook"* ]]; then
 ###########
 
 elif [[ $HOSTNAME == *"titan"* ]]; then
-    export CERN_USER=zmeadows
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
     alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
+    source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh
+    export CERN_USER=zmeadows
+    lsetup xrootd
+    lsetup rucio
+    lsetup panda
+    lsetup pyami
 
     export TERM=screen-256color
     export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
+    [[ -s /home/zmeadows/.autojump/etc/profile.d/autojump.sh ]] && source /home/zmeadows/.autojump/etc/profile.d/autojump.sh
 
     PATH=/home/zmeadows/local/bin:$PATH
     PATH=$PATH:/home/zmeadows/scripts
     PATH=$PATH:/home/zmeadows/.autojump/bin
     PATH=$PATH:$HOME/local/neovim/bin
-
-    if [ "$PYTHONPATH" = "" ]
-    then
-        export PYTHONPATH=/home/zmeadows/ana/lib/python:/home/zmeadows/local/lib/python
-    else
-        export PYTHONPATH=$PYTHONPATH:/home/zmeadows/ana/lib/python:/home/zmeadows/local/lib/python
-    fi
-
-    setupATLAS
-    lsetup root
-    lsetup xrootd
-    lsetup rucio
-    lsetup panda
-    lsetup pyami
 
 ###########
 # LXPLUS #
