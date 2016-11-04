@@ -22,12 +22,13 @@ setopt APPEND_HISTORY
 
 export LESS='-F -i -J -M -R -W -x4 -X -z-4'
 
+HOSTNAME=$(hostname)
+
 ###########
 # MACBOOK #
 ###########
 
 if [[ $HOSTNAME == *"macbook"* ]]; then
-
     PATH=$PATH:/Users/zac/.cabal/bin
     PATH=$PATH:/Users/zac/Research/scripts
     PATH=$PATH:/Users/zac/.local/bin
@@ -72,6 +73,7 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
     alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
     alias work='cd /afs/cern.ch/work/z/zmeadows/public'
+    export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
     [[ -s /afs/cern.ch/user/z/zmeadows/.autojump/etc/profile.d/autojump.sh ]] && source /afs/cern.ch/user/z/zmeadows/.autojump/etc/profile.d/autojump.sh
     autoload -U compinit && compinit -u
     setupATLAS
