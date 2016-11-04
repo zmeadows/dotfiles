@@ -2,14 +2,9 @@
 
 echo "SETTING UP DOTFILES ON: $HOSTNAME\n"
 
-if [[ ! -d ~/.oh-my-zsh ]]; then
-    echo "INSTALLING OH-MY-ZSH"
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-fi
-
 dir=~/dotfiles          # dotfiles directory
 olddir=~/dotfiles_old   # old dotfiles backup directory
-files="vimrc tmux.conf zshrc" # list of files/folders to symlink in homedir
+files="vimrc tmux.conf zshrc.local" # list of files/folders to symlink in homedir
 
 if [[ $HOSTNAME == *"lxplus"* ]]; then
     dir=/afs/cern.ch/user/z/zmeadows/private/dotfiles
