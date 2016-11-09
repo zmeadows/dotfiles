@@ -1,5 +1,10 @@
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
 
+function chpwd() {
+    emulate -L zsh
+    ls
+}
+
 HISTSIZE=10000
 SAVEHIST=10000
 
