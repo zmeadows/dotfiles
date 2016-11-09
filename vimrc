@@ -32,7 +32,7 @@ Plug 'godlygeek/tabular'
 vnoremap <Enter> :Tab<Space>/
 
 Plug 'ntpeters/vim-better-whitespace'
-autocmd BufWritePre * StripWhitespace
+"autocmd BufWritePre * StripWhitespace
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
