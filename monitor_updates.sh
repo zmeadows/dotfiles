@@ -6,9 +6,10 @@ if [[ $HOSTNAME == *"lxplus"* ]]; then
 fi
 
 cd $dir
+git fetch origin
 git status > /dev/null 2>&1
 
-git diff --quiet origin/master..HEAD
+git diff --quiet origin/master
 if [ $? -ne 0 ]; then
     echo "NOT in sync with github dotfiles!"
 else
