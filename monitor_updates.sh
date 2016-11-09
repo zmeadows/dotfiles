@@ -1,11 +1,11 @@
 #!/bin/sh
 
-dir=$HOMe/dotfiles      
+dir=$HOME/dotfiles      
 if [[ $HOSTNAME == *"lxplus"* ]]; then
     dir=/afs/cern.ch/user/z/zmeadows/private/dotfiles
 fi
 
-cd dir
+cd $dir
 git status > /dev/null 2>&1
 
 git diff-index --quiet HEAD --
