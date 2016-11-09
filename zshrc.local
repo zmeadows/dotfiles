@@ -38,8 +38,11 @@ if [[ $HOSTNAME == *"macbook"* ]]; then
 elif [[ $HOSTNAME == *"titan"* ]]; then
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
     alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
-    source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh
+
     export CERN_USER=zmeadows
+    export RUCIO_ACCOUNT=zmeadows
+
+    source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh
     lsetup xrootd
     lsetup rucio
     lsetup panda
@@ -61,6 +64,7 @@ elif [[ $HOSTNAME == *"titan"* ]]; then
 
 elif [[ $HOSTNAME == *"lxplus"* ]]; then
     export CERN_USER=zmeadows
+    export RUCIO_ACCOUNT=zmeadows
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
     alias setupATLAS='source ${ATLAS_LOCAL_ROOT_BASE}/user/atlasLocalSetup.sh'
     alias work='cd /afs/cern.ch/work/z/zmeadows/public'
