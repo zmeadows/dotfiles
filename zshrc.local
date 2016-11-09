@@ -29,6 +29,8 @@ if [[ $HOSTNAME == *"macbook"* ]]; then
     [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+    source $HOME/dotfiles/monitor_updates.sh
+
 ###########
 # TITAN #
 ###########
@@ -52,6 +54,7 @@ elif [[ $HOSTNAME == *"titan"* ]]; then
     PATH=$PATH:/home/zmeadows/.autojump/bin
     PATH=$PATH:$HOME/local/neovim/bin
 
+    source $HOME/dotfiles/monitor_updates.sh
 ###########
 # LXPLUS #
 ###########
@@ -72,4 +75,5 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     lsetup pyami
 
     PATH=$HOME/private/scripts:$PATH
+    source $HOME/private/dotfiles/monitor_updates.sh
 fi

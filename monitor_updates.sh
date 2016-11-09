@@ -11,7 +11,9 @@ git status > /dev/null 2>&1
 
 git diff --quiet origin/master
 if [ $? -ne 0 ]; then
-    echo "NOT in sync with github dotfiles!"
-else
-    echo "in sync with github dotfiles."
+    echo "###############"
+    echo "### WARNING ###"
+    echo "###############"
+
+    echo "dotfiles in $dir NOT in sync with remote github repository!"
 fi
