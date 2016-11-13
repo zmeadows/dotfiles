@@ -28,6 +28,14 @@ let gutentags_project_info = [
   \ {'type': 'haskell', 'glob': '*.hs'}
   \ ]
 
+Plug 'majutsushi/tagbar'
+set updatetime=1000
+nnoremap <leader>b :TagbarToggle<CR>
+
+Plug 'dracula/vim'
+
+Plug 'lervag/vimtex'
+
 Plug 'godlygeek/tabular'
 vnoremap <Enter> :Tab<Space>/
 
@@ -38,7 +46,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
-" Or split the screen vertically
 let g:fzf_layout = { 'down': '10%' }
 nnoremap <leader>f :FzfFiles<CR>
 nnoremap <leader>t :FzfBTags<CR>
@@ -81,6 +88,9 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
 " }}}
 
 " {{{ USEFUL AND UNINTRUSIVE
@@ -112,7 +122,7 @@ set numberwidth=3
 set nowrap
 
 set background=dark
-color 256_noir
+color dracula
 
 map <SPACE> <leader>
 
@@ -150,4 +160,12 @@ call SetupCommandAlias('Vsplit', 'vsplit')
 call SetupCommandAlias('VSplit', 'vsplit')
 call SetupCommandAlias('Split', 'split')
 call SetupCommandAlias('SPlit', 'split')
+" }}}
+
+" {{{ GENERAL KEYBINDS
+" tnoremap <C-w>h <C-\><C-n><C-w>h
+" tnoremap <C-w>j <C-\><C-n><C-w>j
+" tnoremap <C-w>k <C-\><C-n><C-w>k
+" tnoremap <C-w>l <C-\><C-n><C-w>l
+" autocmd BufWinEnter,WinEnter term://* startinsert
 " }}}
