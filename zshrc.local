@@ -83,3 +83,4 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     $HOME/private/dotfiles/monitor_updates.sh
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
