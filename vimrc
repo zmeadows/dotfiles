@@ -104,7 +104,7 @@ Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'Dracula',
       \ }
 " }}}
 
