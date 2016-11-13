@@ -6,7 +6,7 @@ if [[ $HOSTNAME == *"lxplus"* ]]; then
 fi
 
 cd $dir
-git fetch origin
+git fetch origin > /dev/null
 git status > /dev/null 2>&1
 
 git diff --quiet origin/master
