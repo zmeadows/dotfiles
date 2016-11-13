@@ -21,6 +21,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'jceb/vim-orgmode'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
 
+Plug 'Rip-Rip/clang_complete'
+
 Plug 'mattn/calendar-vim'
 Plug 'vim-scripts/utl.vim'
 Plug 'vim-scripts/SyntaxRange'
