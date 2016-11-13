@@ -18,6 +18,12 @@ Plug 'tpope/vim-commentary'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'romainl/vim-qf'
 Plug 'tpope/vim-fugitive'
+Plug 'jceb/vim-orgmode'
+let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
+
+Plug 'mattn/calendar-vim'
+Plug 'vim-scripts/utl.vim'
+Plug 'vim-scripts/SyntaxRange'
 
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_ctags_executable_haskell = 'gutenhasktags'
@@ -123,6 +129,7 @@ set nowrap
 
 set background=dark
 color dracula
+set guifont=InputMono\ Medium:h14
 
 map <SPACE> <leader>
 

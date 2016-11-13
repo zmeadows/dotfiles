@@ -77,6 +77,8 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     lsetup panda
     lsetup pyami
 
+    source /afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/setup.sh
+
     PATH=$HOME/private/scripts:$PATH
     $HOME/private/dotfiles/monitor_updates.sh
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
