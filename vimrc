@@ -22,6 +22,13 @@ Plug 'jceb/vim-orgmode'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
 
 Plug 'Rip-Rip/clang_complete'
+let g:clang_close_preview=1
+if hostname =~ "macbook"
+   let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+elseif hostname =~ "lxplus"
+   let g:clang_library_path='/afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/lib/libclang.so'
+elseif hostname =~ "titan"
+endif
 
 Plug 'mattn/calendar-vim'
 Plug 'vim-scripts/utl.vim'
