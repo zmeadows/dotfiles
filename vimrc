@@ -21,6 +21,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'jceb/vim-orgmode'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
 
+Plug 'justinmk/vim-sneak'
+let g:sneak#streak = 1
+
 Plug 'Rip-Rip/clang_complete'
 let g:clang_close_preview=1
 if hostname =~ "macbook"
