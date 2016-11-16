@@ -142,6 +142,8 @@ set nowrap
 set background=dark
 color dracula
 set guifont=InputMono\ Medium:h14
+hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
+
 
 map <SPACE> <leader>
 
