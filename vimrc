@@ -17,6 +17,7 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-commentary'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'romainl/vim-qf'
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jceb/vim-orgmode'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
