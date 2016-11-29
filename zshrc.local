@@ -56,6 +56,7 @@ elif [[ $HOSTNAME == *"titan"* ]]; then
     PATH=$PATH:/home/zmeadows/scripts
     PATH=$PATH:/home/zmeadows/.autojump/bin
     PATH=$PATH:$HOME/local/neovim/bin
+    PATH=$PATH:/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux
 
     source /afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/setup.sh
 
@@ -88,6 +89,8 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
 
     PATH=$HOME/private/scripts:$PATH
     PATH=/afs/cern.ch/user/z/zmeadows/private/local/bin:$PATH
+    PATH=$PATH:/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux
+
     $HOME/private/dotfiles/monitor_updates.sh
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
