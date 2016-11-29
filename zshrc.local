@@ -57,6 +57,8 @@ elif [[ $HOSTNAME == *"titan"* ]]; then
     PATH=$PATH:/home/zmeadows/.autojump/bin
     PATH=$PATH:$HOME/local/neovim/bin
 
+    source /afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/setup.sh
+
     $HOME/dotfiles/monitor_updates.sh
 ###########
 # LXPLUS #
