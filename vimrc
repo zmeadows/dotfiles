@@ -17,9 +17,13 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-commentary'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'romainl/vim-qf'
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jceb/vim-orgmode'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
+
+Plug 'justinmk/vim-sneak'
+let g:sneak#streak = 1
 
 Plug 'Rip-Rip/clang_complete'
 let g:clang_close_preview=1
@@ -139,6 +143,8 @@ set nowrap
 set background=dark
 color dracula
 set guifont=InputMono\ Medium:h14
+hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
+
 
 map <SPACE> <leader>
 
