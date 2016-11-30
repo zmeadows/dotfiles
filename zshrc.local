@@ -12,6 +12,8 @@ export LESS='-F -i -J -M -R -W -x4 -X -z-4'
 
 HOSTNAME=$(hostname)
 
+alias rm='rm -i'
+
 ###########
 # MACBOOK #
 ###########
@@ -90,6 +92,8 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     PATH=$HOME/private/scripts:$PATH
     PATH=/afs/cern.ch/user/z/zmeadows/private/local/bin:$PATH
     PATH=$PATH:/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux
+
+    epoxrt PYTHONPATH="${PYTHONPATH}:/afs/cern.ch/user/z/zmeadows/public/python"
 
     $HOME/private/dotfiles/monitor_updates.sh
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
