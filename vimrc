@@ -20,6 +20,7 @@ Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jceb/vim-orgmode'
+Plug 'vim-scripts/VisIncr'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
 
 Plug 'justinmk/vim-sneak'
