@@ -111,6 +111,7 @@ Plug 'itchyny/lightline.vim'
 let g:lightline = {
       \ 'colorscheme': 'Dracula',
       \ }
+Plug 'edkolev/tmuxline.vim'
 " }}}
 
 " {{{ USEFUL AND UNINTRUSIVE
