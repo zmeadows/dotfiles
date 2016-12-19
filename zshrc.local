@@ -90,7 +90,6 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
     eval $(ssh-agent -s)
     ssh-add ~/private/id_rsa
     kinit -k -t $HOME/private/zmeadows.keytab zmeadows@CERN.CH
-    #aklog
 
     PATH=$HOME/private/scripts:$PATH
     PATH=/afs/cern.ch/user/z/zmeadows/private/local/bin:$PATH
