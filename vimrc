@@ -35,6 +35,14 @@ elseif hostname =~ "lxplus"
 elseif hostname =~ "titan"
 endif
 
+if hostname =~ "macbook"
+    Plug 'vim-syntastic/syntastic'
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 1
+    let g:syntastic_check_on_wq = 0
+endif
+
 Plug 'mattn/calendar-vim'
 Plug 'vim-scripts/utl.vim'
 Plug 'vim-scripts/SyntaxRange'
@@ -147,15 +155,17 @@ color dracula
 set guifont=InputMono\ Medium:h14
 hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
 
-
 map <SPACE> <leader>
 
-highlight SpecialKey ctermfg=White ctermbg=Red
-set list
-set listchars=tab:T>
+"highlight SpecialKey ctermfg=White ctermbg=Red
+"set list
+"set listchars=tab:T>
 set mouse=a
 
-set tabstop=4 shiftwidth=4 expandtab
+set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 set hls is ic scs
 
