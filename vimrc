@@ -163,7 +163,7 @@ map <SPACE> <leader>
 set mouse=a
 
 set autoindent
-set noexpandtab
+set expandtab
 set tabstop=4
 set shiftwidth=4
 
