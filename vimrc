@@ -117,9 +117,9 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'Dracula',
-      \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'Dracula',
+"       \ }
 Plug 'edkolev/tmuxline.vim'
 " }}}
 
@@ -152,7 +152,7 @@ set numberwidth=3
 set nowrap
 
 set background=dark
-color dracula
+color 256_noir
 set guifont=InputMono\ Medium:h14
 hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
 
