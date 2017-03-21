@@ -4,7 +4,7 @@ echo "SETTING UP DOTFILES ON: $HOSTNAME\n"
 
 dir=~/dotfiles          # dotfiles directory
 olddir=~/dotfiles_old   # old dotfiles backup directory
-files="vimrc tmux.conf zshrc.local" # list of files/folders to symlink in homedir
+files="emacs vimrc tmux.conf zshrc.local" # list of files/folders to symlink in homedir
 
 if [[ $HOSTNAME == *"lxplus"* ]]; then
     dir=/afs/cern.ch/user/z/zmeadows/private/dotfiles
