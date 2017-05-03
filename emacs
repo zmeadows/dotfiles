@@ -76,6 +76,15 @@
   :init (add-hook 'haskell-mode-hook 'intero-mode)
   )
 
+(use-package hindent
+  :ensure t
+  :defer t
+  :commands hindent-mode
+  :init
+  (add-hook 'haskell-mode-hook 'hindent-mode)
+  (setq hindent-reformat-buffer-on-save t)
+  )
+
 (use-package rust-mode
   :ensure t
   :defer t
@@ -120,4 +129,9 @@
     :ensure t)
   (evil-mode 1)
   (define-key evil-visual-state-map (kbd "RET") 'align-regexp)
+  )
+
+(use-package rainbow-delimiters
+  :ensure t
+  :init (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   )
