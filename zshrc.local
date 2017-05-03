@@ -105,10 +105,10 @@ elif [[ $HOSTNAME == *"lxplus"* || $HOSTNAME == *"umass"* ]]; then
     export PYTHONPATH="${PYTHONPATH}:/afs/cern.ch/user/z/zmeadows/public/python"
 
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    # $HOME/private/dotfiles/monitor_updates.sh
 
-    # eval $(ssh-agent -s)
-    # ssh-add ~/private/id_rsa
+    eval $(ssh-agent -s)
+    ssh-add ~/private/id_rsa
+    $HOME/private/dotfiles/monitor_updates.sh
     # kinit -k -t $HOME/private/zmeadows.keytab zmeadows@CERN.CH
 fi
 
