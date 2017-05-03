@@ -5,6 +5,15 @@ function chpwd() {
     ls
 }
 
+lstd() {
+    find . -mtime -$1 -ls
+}
+
+lsth() {
+    find . -mtime -$(bc <<< "scale = 10; $1/24.0") -ls
+}
+
+
 HISTSIZE=10000
 SAVEHIST=10000
 
@@ -13,6 +22,7 @@ export LESS='-F -i -J -M -R -W -x4 -X -z-4'
 HOSTNAME=$(hostname)
 
 alias rm='rm -i'
+alias emacs='emacs -nw'
 
 ###########
 # MACBOOK #
@@ -67,7 +77,7 @@ elif [[ $HOSTNAME == *"titan"* ]]; then
 # LXPLUS #
 ###########
 
-elif [[ $HOSTNAME == *"lxplus"* ]]; then
+elif [[ $HOSTNAME == *"lxplus"* || $HOSTNAME == *"umass"* ]]; then
     export CERN_USER=zmeadows
     export RUCIO_ACCOUNT=zmeadows
     export ATLAS_LOCAL_ROOT_BASE=/cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
@@ -75,29 +85,30 @@ elif [[ $HOSTNAME == *"lxplus"* ]]; then
 
     alias work='cd /afs/cern.ch/work/z/zmeadows/public'
     alias myeos='cd /eos/user/z/zmeadows'
+    alias myatlaseos='cd /eos/atlas/user/z/zmeadows'
 
     export TERM=screen-256color
     export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:"
     [[ -s /afs/cern.ch/user/z/zmeadows/.autojump/etc/profile.d/autojump.sh ]] && source /afs/cern.ch/user/z/zmeadows/.autojump/etc/profile.d/autojump.sh
     setupATLAS
-    #lsetup xrootd
-    #lsetup rucio
-    #lsetup panda
-    #lsetup pyami
+    lsetup xrootd
+    lsetup rucio
+    lsetup panda
+    lsetup pyami
 
     source /afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/setup.sh
 
-    eval $(ssh-agent -s)
-    ssh-add ~/private/id_rsa
-    kinit -k -t $HOME/private/zmeadows.keytab zmeadows@CERN.CH
-
-    PATH=$HOME/private/scripts:$PATH
-    PATH=/afs/cern.ch/user/z/zmeadows/private/local/bin:$PATH
-    PATH=$PATH:/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux
+    export PATH=$HOME/private/scripts:$PATH
+    export PATH=/afs/cern.ch/user/z/zmeadows/private/local/bin:$PATH
+    export PATH=/afs/cern.ch/sw/XML/texlive/latest/bin/x86_64-linux:$PATH
 
     export PYTHONPATH="${PYTHONPATH}:/afs/cern.ch/user/z/zmeadows/public/python"
 
-    $HOME/private/dotfiles/monitor_updates.sh
     source /afs/cern.ch/user/z/zmeadows/private/scripts/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    # $HOME/private/dotfiles/monitor_updates.sh
+
+    # eval $(ssh-agent -s)
+    # ssh-add ~/private/id_rsa
+    # kinit -k -t $HOME/private/zmeadows.keytab zmeadows@CERN.CH
 fi
 

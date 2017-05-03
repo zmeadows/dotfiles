@@ -19,7 +19,6 @@ Plug 'coderifous/textobj-word-column.vim'
 Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'jceb/vim-orgmode'
 Plug 'vim-scripts/VisIncr'
 let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
 
@@ -80,6 +79,7 @@ nnoremap <leader>f :FzfFiles<CR>
 nnoremap <leader>t :FzfBTags<CR>
 nnoremap <leader>T :FzfTags<CR>
 nnoremap <leader>w :FzfWindows<CR>
+nnoremap <leader>b :FzfBuffers<CR>
 
 nnoremap <silent> <Leader>s :call fzf#run({
 \   'down': '40%',
@@ -112,14 +112,13 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 " }}}
 
 " {{{ APPEARANCE
-Plug 'airblade/vim-gitgutter'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'flazz/vim-colorschemes'
 
 Plug 'itchyny/lightline.vim'
-" let g:lightline = {
-"       \ 'colorscheme': 'Dracula',
-"       \ }
+let g:lightline = {
+      \ 'colorscheme': 'Dracula',
+      \ }
 Plug 'edkolev/tmuxline.vim'
 " }}}
 
@@ -147,14 +146,15 @@ set directory=~/.vim/backups/swap_files
 
 " {{{ VIM SETTINGS
 set foldmethod=marker
-set number
+set nonumber
 set numberwidth=3
 set nowrap
 
 set background=dark
-color 256_noir
-set guifont=InputMono\ Medium:h14
-hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
+color base16-ateliersulphurpool
+hi Normal guibg=NONE ctermbg=NONE
+" set guifont=InputMono\ Medium:h14
+" hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
 
 map <SPACE> <leader>
 
@@ -165,8 +165,8 @@ set mouse=a
 
 set autoindent
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 set hls is ic scs
 
