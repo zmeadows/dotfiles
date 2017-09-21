@@ -13,38 +13,13 @@ call plug#begin('~/.vim/plugged')
 " {{{ ESSENTIAL
 "
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-obsession'
 Plug 'ajh17/VimCompletesMe'
-Plug 'tpope/vim-commentary'
 Plug 'coderifous/textobj-word-column.vim'
 Plug 'romainl/vim-qf'
 Plug 'wellle/targets.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/VisIncr'
-let g:utl_cfg_hdl_scm_http_system = "silent !open -a Safari '%u'"
-
-Plug 'justinmk/vim-sneak'
-let g:sneak#streak = 1
-
-Plug 'Rip-Rip/clang_complete'
-let g:clang_close_preview=1
-if hostname =~ "macbook"
-   let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-elseif hostname =~ "lxplus"
-   let g:clang_library_path='/afs/cern.ch/sw/lcg/external/llvm/3.9.0/x86_64-slc6/lib/libclang.so'
-elseif hostname =~ "titan"
-endif
-
-" if hostname =~ "macbook"
-"     Plug 'vim-syntastic/syntastic'
-"     let g:syntastic_always_populate_loc_list = 1
-"     let g:syntastic_auto_loc_list = 1
-"     let g:syntastic_check_on_open = 1
-"     let g:syntastic_check_on_wq = 0
-" endif
-
-Plug 'mattn/calendar-vim'
-Plug 'vim-scripts/utl.vim'
-Plug 'vim-scripts/SyntaxRange'
+Plug 'rhysd/vim-clang-format'
 
 Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_ctags_executable_haskell = 'gutenhasktags'
@@ -55,39 +30,26 @@ let gutentags_project_info = [
   \ {'type': 'haskell', 'glob': '*.hs'}
   \ ]
 
-Plug 'majutsushi/tagbar'
-set updatetime=1000
-nnoremap <leader>b :TagbarToggle<CR>
-
-Plug 'dracula/vim'
-
 Plug 'lervag/vimtex'
 let g:vimtex_quickfix_ignore_all_warnings=1
 
 Plug 'godlygeek/tabular'
 vnoremap <Enter> :Tab<Space>/
 
+Plug 'junegunn/vim-journal'
+
 Plug 'ntpeters/vim-better-whitespace'
-"autocmd BufWritePre * StripWhitespace
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 let g:fzf_command_prefix = 'Fzf'
-let g:fzf_layout = { 'down': '10%' }
+let g:fzf_layout = { 'down': '20%' }
 nnoremap <leader>f :FzfFiles<CR>
 nnoremap <leader>t :FzfBTags<CR>
 nnoremap <leader>T :FzfTags<CR>
 nnoremap <leader>w :FzfWindows<CR>
 nnoremap <leader>b :FzfBuffers<CR>
-
-nnoremap <silent> <Leader>s :call fzf#run({
-\   'down': '40%',
-\   'sink': 'botright split' })<CR>
-
-nnoremap <silent> <Leader>v :call fzf#run({
-\   'right': winwidth('.') / 2,
-\   'sink':  'vertical botright split' })<CR>
 
 Plug 'mhinz/vim-grepper'
 nnoremap <leader>g :Grepper<CR>
@@ -114,16 +76,15 @@ let g:pandoc#filetypes#pandoc_markdown = 0
 " {{{ APPEARANCE
 Plug 'justinmk/vim-syntax-extra'
 Plug 'flazz/vim-colorschemes'
+Plug 'arcticicestudio/nord-vim'
 
-Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'Dracula',
-      \ }
-Plug 'edkolev/tmuxline.vim'
+" Plug 'itchyny/lightline.vim'
+" let g:lightline = {
+"       \ 'colorscheme': 'nord',
+"       \ }
 " }}}
 
 " {{{ USEFUL AND UNINTRUSIVE
-Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-repeat'
 " }}}
 
@@ -146,15 +107,34 @@ set directory=~/.vim/backups/swap_files
 
 " {{{ VIM SETTINGS
 set foldmethod=marker
-set nonumber
+set number
 set numberwidth=3
-set nowrap
+set wrap
 
+au FileType cpp setlocal cindent cino=j1,(0,ws,Ws
+
+color blazer
 set background=dark
-color base16-ateliersulphurpool
-hi Normal guibg=NONE ctermbg=NONE
-" set guifont=InputMono\ Medium:h14
-" hi MatchParen cterm=bold ctermbg=magenta ctermfg=white
+hi StatusLine   ctermfg=237     ctermbg=254     cterm=NONE
+hi StatusLineNC ctermfg=254     ctermbg=237     cterm=NONE
+hi Search       cterm=NONE      ctermfg=black   ctermbg=yellow
+hi Comment      cterm=NONE      ctermfg=24
+hi LineNr       ctermfg=8
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 map <SPACE> <leader>
 
@@ -166,7 +146,7 @@ set mouse=a
 set autoindent
 set expandtab
 set tabstop=2
-set shiftwidth=2
+set shiftwidth=4
 
 set hls is ic scs
 
@@ -195,6 +175,7 @@ endfun
 call SetupCommandAlias('W', 'w')
 call SetupCommandAlias('Wa', 'wa')
 call SetupCommandAlias('WA', 'wa')
+call SetupCommandAlias('Wq', 'wq')
 call SetupCommandAlias('Wqa', 'wqa')
 call SetupCommandAlias('WQa', 'wqa')
 call SetupCommandAlias('WQA', 'wqa')
@@ -202,12 +183,11 @@ call SetupCommandAlias('Vsplit', 'vsplit')
 call SetupCommandAlias('VSplit', 'vsplit')
 call SetupCommandAlias('Split', 'split')
 call SetupCommandAlias('SPlit', 'split')
-" }}}
 
-" {{{ GENERAL KEYBINDS
-" tnoremap <C-w>h <C-\><C-n><C-w>h
-" tnoremap <C-w>j <C-\><C-n><C-w>j
-" tnoremap <C-w>k <C-\><C-n><C-w>k
-" tnoremap <C-w>l <C-\><C-n><C-w>l
-" autocmd BufWinEnter,WinEnter term://* startinsert
+augroup vimrc_todo
+    au!
+    au Syntax * syn match MyTodo /\v<(DEPRECATED|FIXME|NOTE|TODO|OPTIMIZE|XXX):/
+          \ containedin=.*Comment,vimCommentTitle
+augroup END
+hi def link MyTodo Todo
 " }}}
